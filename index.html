@@ -1,0 +1,175 @@
+v class="reveal">
+
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section>
+      
+    </section>
+    
+    <section>
+      <h1>&lt;a&gt; tags</h1>
+      <p>Hungry for "a" tags?</p>
+      <p>
+        <small>As presented by Chris Wright / <a href="https://twitter.com/redbrickone">@redbrickone</a></small>
+      </p>
+    </section>
+
+    <section>
+      <section>
+        <h2>A stands for anchor</h2>
+        <p>
+          An anchor tag defines a hyperlink to a location on the same page or another page
+        </p>
+      </section>
+      <section>
+   <pre><code data-trim data-noescape>
+(def lazy-fib
+ (concat
+  [0 1]
+  <mark>((fn rfib [a b]</mark>
+       (lazy-cons (+ a b) (rfib b (+ a b)))) 0 1)))
+   </code></pre>
+</section>
+      <section>
+        <h2>For Example:</h2>
+        <pre><code>
+          <a href="#">hello this is a link</a>
+        </code></pre>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Common Attributes:</h2>
+        <ul>
+          <li>download</li>
+          <li>href</li>
+          <li>target</li>
+        </ul>
+      </section>
+    </section>
+    <section>
+      <section>
+        <h2>Download</h2>
+        <p>This is used to download a file upon clicking the link rather than navigating to another site.</p>
+        <p>&lt;a href=&quot;https://ftp.drupal.org/files/projects/drupal-8.1.1.zip&quot; download&gt;Wubalubadubdub!&lt;/a&gt;</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>href</h2>
+        <p>Indicates the link target, either a URL or a URL fragment (generally used to show a specific part of a page)</p>
+        <p>&lt;a href=&quot;https://developer.mozilla.org/en-US/&quot;&gt;And awaaaay we go!&lt;/a&gt;</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>hreflang</h2>
+        <p>For SEO purposes - tells Google which language the page is in so it can serve your page as a result for people browsing in that language</p>
+        <p>&lt;a href=&quot;http://www.rosettastone.com/&quot; hreflang=&quot;en-us&quot;&gt;Peace among worlds, Rick&lt;/a&gt;</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>media</h2>
+        <p>is purely advisory - to specify which kind of media query this should display on - can pass any valid media query - print, min-width, etc</p>
+        <p>&lt;a href=&quot;https://developer.mozilla.org/en-US/&quot;&gt;And awaaaay we go!&lt;/a&gt;</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>rel</h2>
+        <p>specifies the relationship of the target object and the link object</p>
+        <ul>
+          <li>nofollow</li>
+          <li>prev</li>
+          <li>next</li>
+          <li>search</li>          
+        </ul>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>target</h2>
+        <p>specifies where to display the linked resource</p>
+      </section>
+      <section>
+        <h2>target</h2>
+        <h3>_self</h3>
+        <p>Load the link in the same page - (default)</p>
+        <p>&lt;a href=&quot;https://www.google.com/&quot; target=&quot;_self&quot;&gt;Just your average link&lt;/a&gt;</p>
+      </section>
+      <section>
+        <h2>target</h2>
+        <h3>_blank</h3>
+        <p>Opens the link in a new unnamed tab</p>
+        <p>&lt;a href=&quot;https://www.google.com/&quot; target=&quot;_blank&quot;&gt;Take me to a new tab!&lt;/a&gt;</p>
+        <p>if you use this or window.open(), add rel=&quot;noopener noreferrer&quot; or else you could be prone to viral inception in between link click and new page load</p>
+      </section>
+      <section>
+        <h2>target</h2>
+        <h3>_parent</h3>
+        <p>Loads the page in the parent browsing context of the current one. If there is no parent, it defaults back to _self</p>
+        <p>&lt;a href=&quot;https://www.google.com/&quot; target=&quot;_parent&quot;&gt;Do something neat!&lt;/a&gt;</p>
+      </section>
+      <section>
+        <h2>target</h2>
+        <h3>_top</h3>
+        <p>Load the page into the top-level browsing context (that is the browsing context that is an ancestor of the current one and has no parent) If there is no parent, it defaults back to _self</p>
+        <p>&lt;a href=&quot;https://www.google.com/&quot; target=&quot;_top&quot;&gt;Do something else neat!&lt;/a&gt;</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>type</h2>
+        <p>Specifies the media type in the form of MIME type for the link target. Generally just advisory but could be used for media, so if someone had a speaker icon for any link with an "audio/wav" type specified</p>
+        <p>&lt;a href=&quot;audio/song.wav&quot; type=&quot;media/wav&quot;&gt;Play the song (3.5 MB)&lt;/a&gt;</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>ping</h2>
+        <p>takes a space-separated list of URLs that are to be pinged if the user successfully navigates to the href of the hyperlink. In other words, it provides native support for click and link tracking</p>
+        <p>&lt;a href=&ldquo;#&rdquo; ping=&ldquo;/track/products/blaster /another/link/to/ping/to&rdquo;&gt;Click me&lt;/a&gt;</p>
+        <p>(This is pretty redundant now that we have technologies that already do click-tracking)</p>
+      </section>
+    </section>
+    
+    <section>
+      <section>
+        <h2>referrerpolicy</h2>
+        <p>A string indicating which referrer to use when fetching the resource</p>
+        <ul>
+          <li>no-referrer</li>
+          <li>no-referrer-when-downgrade</li>
+          <li>origin</li>
+          <li>origin-when-cross-origin</li>
+          <li>unsafe-url</li>
+        </ul>
+      </section>
+      
+      <section>
+        <section>
+          <h2>Real-world Examples:</h2>
+          <p>&lt;a href=&quot;https://www.google.com/&quot;&gt;Hungry for a tags?&lt;/a&gt;</p>
+          <p>&lt;a href=&quot;https://www.google.com/&quot; target=&quot;_blank&quot;&gt;Hungry for a tags?&lt;/a&gt;</p>
+        </section>
+      </section>
+         
+      
+    </section>
+    <section>
+      <section>
+        <img src="https://media.giphy.com/media/R6bDgXEXCLcIw/giphy.gif">
+      </section>
+    </section>
+
+  </div>
+
+</div>
