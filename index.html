@@ -4,7 +4,9 @@
     <meta charset="utf-8">
     <title></title>
       <link rel="stylesheet" href="reveal.css">
-
+      <link rel="stylesheet" href="paper.css">
+      <link rel="stylesheet" href="blood.css">
+      <link rel="stylesheet" href="custom.css">
       </script>
   </head>
   <body>
@@ -15,15 +17,13 @@
       <div class="slides">
         <section>
           <h1>CSS Selectors</h1>
-          <p>Hungry for "a" tags?</p>
-          <p>
-            <small>As presented by Chris Wright / <a href="https://twitter.com/redbrickone">@redbrickone</a></small>
-          </p>
+          <p>The good, the bad and the CSS...</p>
         </section>
         <section>
           <section>
             <h1>Basic CSS Selectors</h1>
           </section>
+
           <section>
             <h2>*</h2>
             <p>Asterisks apply to every element on the page</p>
@@ -34,6 +34,7 @@
           }
             </code></pre>
           </section>
+
           <section>
             <h2>#id</h2>
             <p>Hash symbol targets elements by id</p>
@@ -44,6 +45,7 @@
           }
             </code></pre>
           </section>
+
           <section>
             <h2>.class</h2>
             <p>Dot symbol targets elements by class name</p>
@@ -54,8 +56,72 @@
           }
             </code></pre>
           </section>
+
           <section>
-            <h2>.element </h2>
+            <h2>X Y</h2>
+            <p>Descendant Selector</p>
+            <p>This allows for more specificity in selectors</p>
+            <pre><code data-trim data-noescape>
+          .element-class a {
+            color: #FFFFFF;
+            font-size: 2em;
+          }
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>X + Z</h2>
+            <p>adjacent selector.</p>
+            <p>It will select only the element that is immediately preceded by the former element.</p>
+            <p>only the first element with class <code>my-element</code> after each ul will have white text and size 2em</p>
+            <pre><code data-trim data-noescape>
+          ul + .my-element {
+            color: #FFFFFF;
+            font-size: 2em;
+          }
+            </code></pre>
+          </section>
+          <section>
+            <h2>A > B</h2>
+            <p>This will only select direct children</p>
+            <pre><code data-trim data-noescape>
+          div.my-class#container > ul {
+            border: 1px solid black;
+          }
+
+          &lt;div&gt;
+            &lt;ul&gt;
+              this one IS affected
+              &lt;li&gt;
+                &lt;ul&gt;
+                 this one not affected
+                &lt;/ul&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;
+              </code></pre>
+          </section>
+          <section>
+            <h2>W ~ X</h2>
+            <p>Less strict version of the <code>X + Y</code> selector</p>
+            <p>Any p elements, as long as they follow a ul.</p>
+            <pre><code data-trim data-noescape>
+          ul ~ p {
+            padding: 5px;
+            font-size: 2em;
+          }
+
+          &lt;ul&gt;
+            &lt;p&gt;
+              this one is affected
+              &lt;li&gt;
+                &lt;p&gt;
+                 this one is also affected
+                &lt;/p&gt;
+              &lt;/li&gt;
+            &lt;/p&gt;
+          &lt;/ul&gt;
+            </code></pre>
           </section>
         </section>
 
@@ -68,7 +134,7 @@
           </section>
           <!-- my second slide -->
           <section>
-            <h1>CSS [attribute] Selector</h1>
+            <h2>CSS [attribute] Selector</h2>
             <p>How to select an element by their href, download attr, etc...</p>
                <pre><code data-trim data-noescape>
           a[download] {
@@ -77,20 +143,72 @@
                </code></pre>
           </section>
           <section>
-            <h1>The [attribute=”value”] Selector</h1>
+            <h2>The [attribute=”value”] Selector</h2>
             <p>
               This selects an html element with a specific attribute AND a specific value.
             </p>
                 <pre><code data-trim data-noescape>
-          a[download] {
-            background-color: blue;
-          }
+                  a[target="_blank"] {
+                      color: blue;
+                      font-weight: bold;
+                  }
                 </code></pre>
           </section>
+
           <section>
-            <h1>The [attribute~=”value”] Selector</h1>
+            <h2>The [attribute~=”value”] Selector</h2>
             <p>This selector is similar to the previous selector but it selects a specific attribute and value but the value must be a space-separated word.</p>
+            <pre><code data-trim data-noescape>
+          [title~="namespace"] {
+            color: white;
+              font-weight: 200;
+          }
+            </code></pre>
           </section>
+
+          <section>
+            <h2>The [attribute|=”value”] Selector</h2>
+            <p>This selector selects an element with a specific attribute but the value begins with a specific word. It must be a whole word or be separated from other by a hyphen.</p>
+            <pre><code data-trim data-noescape>
+          a[class|="top"] {
+              background: #CCCCCC;
+          }
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>The [attribute^=”value”] Selector</h2>
+            <p>This is just like the last selector, however the value does not have to be a whole word.</p>
+            <pre><code data-trim data-noescape>
+          h2[class^="topbar"] {
+              background: red;
+          }
+            </code></pre>
+          </section>
+
+          <section>
+            <h2>The [attribute$=”value”] Selector</h2>
+            <p>This selector selects an element with a specific attribute that ends with a specific value, rather than beginning with that value.</p>
+            <pre><code data-trim data-noescape>
+              a[class$="st"] {
+                  background: green;
+              }
+            </code></pre>
+            <p>
+              will select an element with a class of "greatest".
+            </p>
+          </section>
+
+          <section>
+            <h2>The [attribute*=”value”] Selector</h2>
+            <p>This selector selects any html element that has a specific attribute and contains a string of textanywhere in the value, so it does not need to begin or end with it as long as it contains the value.</p>
+            <pre><code data-trim data-noescape>
+              a[class*="te"] {
+                  background: blue;
+              }
+            </code></pre>
+          </section>
+
         </section>
 
       </div>
