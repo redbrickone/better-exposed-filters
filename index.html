@@ -90,20 +90,22 @@
             <h2>A > B</h2>
             <p>This will only select direct children</p>
             <pre><code data-trim data-noescape>
-          div.my-class#container > ul {
+          div > p {
             border: 1px solid black;
           }
 
           &lt;div&gt;
-            &lt;ul&gt;
+            &lt;p&gt;
               this one IS affected
               &lt;li&gt;
-                &lt;ul&gt;
-                 this one not affected
-                &lt;/ul&gt;
+                &lt;p&gt;
+                 this one is not affected
+                &lt;/p&gt;
               &lt;/li&gt;
-            &lt;/ul&gt;
+            &lt;/p&gt;
+            &lt;p&gt;this one IS affected&lt;/p&gt;
           &lt;/div&gt;
+          &lt;p&gt;this one is not affected&lt;/p&gt;
               </code></pre>
           </section>
           <section>
@@ -118,9 +120,11 @@
 
           &lt;li&gt;Not Affected&lt;/li&gt;
           &lt;ul&gt;
-            &lt;li&gt;This is Affected&lt;/li&gt;
-            &lt;li&gt;This is Also Affected&lt;/li&gt;
+            &lt;li&gt;Not Affected&lt;/li&gt;
+            &lt;li&gt;Not Affected&lt;/li&gt;
           &lt;/ul&gt;
+          &lt;li&gt;This is Affected&lt;/li&gt;
+          &lt;li&gt;This is Also Affected&lt;/li&gt;
             </code></pre>
           </section>
         </section>
