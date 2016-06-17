@@ -111,7 +111,7 @@
             <p>Less strict version of the <code>X + Y</code> selector</p>
             <p>Any p elements, as long as they follow a ul.</p>
             <pre><code data-trim data-noescape>
-          ul ~ p {
+          ul ~ li {
             padding: 5px;
             font-size: 2em;
           }
@@ -159,10 +159,11 @@
             <h2>The [attribute~=”value”] Selector</h2>
             <p>This selector is similar to the previous selector but it selects a specific attribute and value but the value must be a space-separated word.</p>
             <pre><code data-trim data-noescape>
-          [title~="namespace"] {
+          [title~="top"] {
             color: white;
               font-weight: 200;
           }
+          // not top-bar
             </code></pre>
           </section>
 
@@ -173,6 +174,7 @@
           a[class|="top"] {
               background: #CCCCCC;
           }
+          // will select .top-bar
             </code></pre>
           </section>
 
@@ -193,22 +195,25 @@
               a[class$="st"] {
                   background: green;
               }
+              // will select .greatest
             </code></pre>
-            <p>
-              will select an element with a class of "greatest".
-            </p>
           </section>
 
           <section>
             <h2>The [attribute*=”value”] Selector</h2>
-            <p>This selector selects any html element that has a specific attribute and contains a string of textanywhere in the value, so it does not need to begin or end with it as long as it contains the value.</p>
+            <p>This selector selects any html element that has a specific attribute and contains a string of text anywhere in the value, so it does not need to begin or end with it as long as it contains the value.</p>
             <pre><code data-trim data-noescape>
               a[class*="te"] {
                   background: blue;
               }
+              // selects .first_test
             </code></pre>
           </section>
 
+        </section>
+
+        <section>
+          <iframe src="//giphy.com/embed/5pxnxdzdZfXFK" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
         </section>
 
       </div>
