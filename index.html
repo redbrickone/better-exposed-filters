@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-      <link rel="stylesheet" href="reveal.css">
-      <link rel="stylesheet" href="paper.css">
-      <link rel="stylesheet" href="blood.css">
-      <link rel="stylesheet" href="custom.css">
+      <link rel="stylesheet" href="css/reveal.css">
+      <link rel="stylesheet" href="css/paper.css">
+      <link rel="stylesheet" href="css/blood.css">
+      <link rel="stylesheet" href="css/custom.css">
       </script>
   </head>
   <body>
@@ -75,10 +75,15 @@
             <p>It will select only the element that is immediately preceded by the former element.</p>
             <p>only the first element with class <code>my-element</code> after each ul will have white text and size 2em</p>
             <pre><code data-trim data-noescape>
-          ul + .my-element {
+          ul + li {
             color: #FFFFFF;
             font-size: 2em;
           }
+
+          &lt;ul&gt;
+            &lt;li&gt;This is Affected&lt;/li&gt;
+            &lt;li&gt;This is Not Affected&lt;/li&gt;
+          &lt;/ul&gt;
             </code></pre>
           </section>
           <section>
@@ -111,15 +116,10 @@
             font-size: 2em;
           }
 
+          &lt;li&gt;Not Affected&lt;/li&gt;
           &lt;ul&gt;
-            &lt;p&gt;
-              this one is affected
-              &lt;li&gt;
-                &lt;p&gt;
-                 this one is also affected
-                &lt;/p&gt;
-              &lt;/li&gt;
-            &lt;/p&gt;
+            &lt;li&gt;This is Affected&lt;/li&gt;
+            &lt;li&gt;This is Also Affected&lt;/li&gt;
           &lt;/ul&gt;
             </code></pre>
           </section>
