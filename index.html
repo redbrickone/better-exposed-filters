@@ -16,208 +16,147 @@
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
         <section>
-          <h1>CSS Selectors</h1>
-          <p>The good, the bad and the uglified CSS...</p>
+          <h1>Better Exposed Filters (BEF)</h1>
+          <p>Because your filters are lame or your client wants something crazy.</p>
         </section>
         <section>
           <section>
-            <h1>Basic CSS Selectors</h1>
+            <h1>What is a filter?</h1>
           </section>
 
           <section>
-            <h2>*</h2>
-            <p>Asterisks apply to every element on the page</p>
-            <pre><code data-trim data-noescape>
-          * {
-            background-color: red;
-            margin: 0;
-          }
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>#id</h2>
-            <p>Hash symbol targets elements by id</p>
-            <pre><code data-trim data-noescape>
-          #element-id {
-            position: relative;
-            margin: 0;
-          }
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>.class</h2>
-            <p>Dot symbol targets elements by class name</p>
-            <pre><code data-trim data-noescape>
-          .element-class {
-            position: relative;
-            margin: 0;
-          }
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>X Y</h2>
-            <p>Descendant Selector</p>
-            <p>This allows for more specificity in selectors</p>
-            <pre><code data-trim data-noescape>
-          .element-class a {
-            color: #FFFFFF;
-            font-size: 2em;
-          }
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>X + Z</h2>
-            <p>adjacent selector.</p>
-            <p>It will select only the element that is immediately preceded by the former element.</p>
-            <p>only the first element with class <code>my-element</code> after each ul will have white text and size 2em</p>
-            <pre><code data-trim data-noescape>
-          ul + li {
-            color: #FFFFFF;
-            font-size: 2em;
-          }
-
-          &lt;ul&gt;
-            &lt;li&gt;This is Affected&lt;/li&gt;
-            &lt;li&gt;This is Not Affected&lt;/li&gt;
-          &lt;/ul&gt;
-            </code></pre>
-          </section>
-          <section>
-            <h2>A > B</h2>
-            <p>This will only select direct children</p>
-            <pre><code data-trim data-noescape>
-          div > p {
-            border: 1px solid black;
-          }
-
-          &lt;div&gt;
-            &lt;p&gt;
-              this one IS affected
-              &lt;li&gt;
-                &lt;p&gt;
-                 this one is not affected
-                &lt;/p&gt;
-              &lt;/li&gt;
-            &lt;/p&gt;
-            &lt;p&gt;this one IS affected&lt;/p&gt;
-          &lt;/div&gt;
-          &lt;p&gt;this one is not affected&lt;/p&gt;
-              </code></pre>
-          </section>
-          <section>
-            <h2>W ~ X</h2>
-            <p>Less strict version of the <code>X + Y</code> selector</p>
-            <p>Any p elements, as long as they follow a ul.</p>
-            <pre><code data-trim data-noescape>
-          ul ~ li {
-            padding: 5px;
-            font-size: 2em;
-          }
-
-          &lt;li&gt;Not Affected&lt;/li&gt;
-          &lt;ul&gt;
-            &lt;li&gt;Not Affected&lt;/li&gt;
-            &lt;li&gt;Not Affected&lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;li&gt;This is Affected&lt;/li&gt;
-          &lt;li&gt;This is Also Affected&lt;/li&gt;
-            </code></pre>
+            <h2>Filters</h2>
+            <p>Determine what content will be shown</p>
+            <p>For example:</p>
+            <ul>
+              <li>Online Store</li>
+              <li>Events</li>
+              <li>Facebook Wall</li>
+            </ul>
           </section>
         </section>
 
 
         <section>
-          <!-- my first slide -->
           <section>
-            <h1>Attribute Selectors</h1>
-            <p>Here's where things get fun</p>
-          </section>
-          <!-- my second slide -->
-          <section>
-            <h2>CSS [attribute] Selector</h2>
-            <p>How to select an element by their href, download attr, etc...</p>
-               <pre><code data-trim data-noescape>
-          a[download] {
-            background-color: blue;
-          }
-               </code></pre>
-          </section>
-          <section>
-            <h2>The [attribute=”value”] Selector</h2>
-            <p>
-              This selects an html element with a specific attribute AND a specific value.
-            </p>
-                <pre><code data-trim data-noescape>
-          a[target="_blank"] {
-              color: blue;
-              font-weight: bold;
-          }
-                </code></pre>
+            <h1>What is an exposed filter?</h1>
           </section>
 
           <section>
-            <h2>The [attribute~=”value”] Selector</h2>
-            <p>This selector is similar to the previous selector but it selects a specific attribute and value but the value must be a space-separated word.</p>
-            <pre><code data-trim data-noescape>
-          [title~="top"] {
-            color: white;
-              font-weight: 200;
-          }
-          // not top-bar
-            </code></pre>
+            <h2>Exposed Filters</h2>
+            <p>Allows the user to choose how they want to filter the content</p>
+            <p>For example:</p>
+            <ul>
+              <li>Filter by Price: low to high</li>
+              <li>Search</li>
+            </ul>
           </section>
-
-          <section>
-            <h2>The [attribute|=”value”] Selector</h2>
-            <p>This selector selects an element with a specific attribute but the value begins with a specific word. It must be a whole word or be separated from other by a hyphen.</p>
-            <pre><code data-trim data-noescape>
-          a[class|="top"] {
-              background: #CCCCCC;
-          }
-          // will select .top-bar
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>The [attribute^=”value”] Selector</h2>
-            <p>This is just like the last selector, however the value does not have to be a whole word.</p>
-            <pre><code data-trim data-noescape>
-          h2[class^="topbar"] {
-              background: red;
-          }
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>The [attribute$=”value”] Selector</h2>
-            <p>This selector selects an element with a specific attribute that ends with a specific value, rather than beginning with that value.</p>
-            <pre><code data-trim data-noescape>
-              a[class$="st"] {
-                  background: green;
-              }
-              // will select .greatest
-            </code></pre>
-          </section>
-
-          <section>
-            <h2>The [attribute*=”value”] Selector</h2>
-            <p>This selector selects any html element that has a specific attribute and contains a string of text anywhere in the value, so it does not need to begin or end with it as long as it contains the value.</p>
-            <pre><code data-trim data-noescape>
-              a[class*="te"] {
-                  background: blue;
-              }
-              // selects .first_test
-            </code></pre>
-          </section>
-
         </section>
 
         <section>
-          <iframe src="//giphy.com/embed/5pxnxdzdZfXFK" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+          <section>
+            <h1>What is Better Exposed Filters?</h1>
+          </section>
+
+          <section>
+            <h2>Better Exposed Filters</h2>
+            <p>Drupal module; Provides a better user experience than the default option.</p>
+            <p>Integrates with Drupal Views</p>
+
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>How on earth do you use BEF?</h1>
+            <p>Allow me to show you</p>
+          </section>
+
+          <section>
+            <h2>Prerequisites</h2>
+            <ul>
+              <li>Have a content type</li>
+              <li>Have a view set up (View Page or View Block)</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Step 1:</h2>
+            <p>Install and Enable the module</p>
+            <ul>
+              <li>Using Drush or</li>
+              <li>Install the module to `/modules` directory</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Step 2:</h2>
+            <p>Taxonomy Terms</p>
+            <ul>
+              <li>Navigate to `Structure > Taxonomy`</li>
+              <li>Add vocabulary (This will be your taxonomy grouping title)</li>
+              <li>Click on "List Terms" in your new Vocabulary</li>
+              <li>Add your terms (this will be the categories or terms you sort by in your view)</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Step 3:</h2>
+            <p>Term reference field in your content type</p>
+            <ul>
+              <li>Navigate to your Content Type</li>
+              <li>(If you don't have one already) Add a field with type of "Term "</li>
+              <li>It will prompt you to configure your field.</li>
+              <li>Under field settings, change number of values to 1 if you don't want them to choose multiple taxonomy terms</li>
+              <li>Point the Vocabulary to your Vocabulary your just created.</li>
+              <li>Save settings</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Step 4:</h2>
+            <p>Create filter in the view</p>
+            <ul>
+              <li>Under Filter Criteria, Click add - "Has taxonomy term"</li>
+              <li>Select your taxonomy Vocabulary</li>
+              <li>Selection type should be Dropdown</li>
+              <li>Expose the filter to anon users</li>
+              <li>Select "Single filter" and change the filter Label to what you want or remove it</li>
+              <li>Select "Is one of" and select the terms you want selected. (If all, leave terms unselected)</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Step 5:</h2>
+            <p>Enable BEF in the view</p>
+            <ul>
+              <li>Under Exposed form, change Basic to Better Exposed Filters</li>
+              <li>Check the option for "Autosubmit" and Make sure "Hide submit button" is checked as well</li>
+              <li>At the bottom, you should see the your taxonomy term field. You can change it from "Default select list" to "Checkboxes", "Links" or "Hidden"</li>
+            </ul>
+
+          </section>
+
+          <section>
+            <h2>Miscellaneous</h2>
+            <ul>
+              <li>"Exposed form in block: No" will add your filter(s) above your view page.</li>
+              <li>"Exposed form in block: Yes" allows your to place your filters as a block wherever you want.</li>
+              <li>BEF must be used with a View Page UNLESS you turn on AJAX in the advanced settings of your view. Then you can use it with your View Block</li>
+              <li>However, if there is a custom view.tpl.php, BEF block may not work on a Block View. You will need to have a Default or normal view.tpl.php for your specific view for it to work.</li>
+            </ul>
+
+          </section>
+        </section>
+
+        <section>
+          <h2>You've successfully used BEF. Good Job</h2>
+          <img src="http://mrwgifs.com/wp-content/uploads/2016/03/I-Like-What-You-Got-Good-Job-On-Rick-and-Morty-Get-Schwifty.gif">
         </section>
 
       </div>
